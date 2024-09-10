@@ -1,0 +1,306 @@
+[gd_scene load_steps=23 format=3 uid="uid://bp6ghlo2emko6"]
+
+[ext_resource type="Script" path="res://scripts/level.gd" id="1_p8v5s"]
+[ext_resource type="Texture2D" uid="uid://btk7ja7xv2ifh" path="res://src/ceu1.png" id="2_5jx5u"]
+[ext_resource type="Texture2D" uid="uid://dv4g4kpl6ydct" path="res://src/grama.png" id="3_edci4"]
+[ext_resource type="Texture2D" uid="uid://bwahhomr00dex" path="res://src/terra.png" id="4_sgy6q"]
+[ext_resource type="Script" path="res://scripts/porta.gd" id="5_xmfgq"]
+[ext_resource type="Texture2D" uid="uid://cqwm1tuslmgkm" path="res://src/door.png" id="6_vldqc"]
+[ext_resource type="PackedScene" uid="uid://brxfeppsvoko7" path="res://nodes/galo.tscn" id="7_wehmc"]
+[ext_resource type="FontFile" uid="uid://066rixanrrx5" path="res://src/RebellionSquad-ZpprZ.ttf" id="8_0773y"]
+[ext_resource type="Texture2D" uid="uid://6y72vh0kswa7" path="res://src/moedass.png" id="9_mnpph"]
+[ext_resource type="Script" path="res://scripts/Button.gd" id="10_cy8q7"]
+[ext_resource type="PackedScene" uid="uid://d25d34rppg62s" path="res://nodes/moeda.tscn" id="10_pwgwe"]
+[ext_resource type="PackedScene" uid="uid://cvho4xx5m3uju" path="res://nodes/levelb.tscn" id="11_nawnh"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e3pcr"]
+texture = ExtResource("3_edci4")
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:1/0 = 0
+0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:1/0/physics_layer_0/angular_velocity = 0.0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:1/0 = 0
+1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/0/physics_layer_0/angular_velocity = 0.0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2ypbs"]
+texture = ExtResource("4_sgy6q")
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:1/0 = 0
+0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:1/0/physics_layer_0/angular_velocity = 0.0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:1/0 = 0
+1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/0/physics_layer_0/angular_velocity = 0.0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_2kk6x"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_e3pcr")
+sources/1 = SubResource("TileSetAtlasSource_2ypbs")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rpn13"]
+atlas = ExtResource("6_vldqc")
+region = Rect2(0, 0, 40, 40)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nh4dt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rpn13")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y5k8n"]
+size = Vector2(40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xbp48"]
+atlas = ExtResource("9_mnpph")
+region = Rect2(38, 0, 38, 38)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w8b4t"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xbp48")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xkapa"]
+bg_color = Color(0.156863, 0.690196, 0.6, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i865q"]
+bg_color = Color(0.12549, 0.356863, 0.215686, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_p8v5s")
+
+[node name="Background" type="TextureRect" parent="."]
+offset_left = 1.0
+offset_top = 251.0
+offset_right = 1201.0
+offset_bottom = 601.0
+texture = ExtResource("2_5jx5u")
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_2kk6x")
+format = 2
+layer_0/tile_data = PackedInt32Array(2424832, 0, 0, 2424833, 65536, 0, 2424834, 0, 0, 2424835, 65536, 0, 2424836, 0, 0, 2424837, 65536, 0, 2424838, 0, 0, 2424839, 65536, 0, 2424840, 0, 0, 2424841, 65536, 0, 2424842, 0, 0, 2424843, 65536, 0, 2424844, 0, 0, 2424845, 1, 0, 2424846, 65537, 0, 2424847, 1, 0, 2424848, 65537, 0, 2424849, 1, 0, 2424850, 65537, 0, 2424851, 1, 0, 2424852, 65537, 0, 2424853, 1, 0, 2424854, 65537, 0, 2424855, 1, 0, 2424856, 65537, 0, 2424857, 1, 0, 2424858, 65537, 0, 2424859, 1, 0, 2424860, 65537, 0, 2424861, 1, 0, 2424862, 65537, 0, 2424863, 1, 0, 2424864, 65537, 0, 2424865, 1, 0, 2424866, 65537, 0, 2424867, 1, 0, 2424868, 65537, 0, 2424869, 1, 0, 2424870, 65537, 0, 2424871, 1, 0, 2424872, 1, 0, 2424873, 65537, 0, 2424874, 1, 0, 2424875, 65537, 0, 2424876, 65537, 0, 2424877, 1, 0, 2424878, 65537, 0, 2424879, 1, 0, 2424880, 65537, 0, 2424881, 65536, 0, 2424882, 0, 0, 2424883, 65536, 0, 2424884, 0, 0, 2424885, 65536, 0, 2424886, 0, 0, 2424887, 65536, 0, 2424888, 0, 0, 2424889, 65536, 0, 2424890, 0, 0, 2424891, 65536, 0, 2424892, 0, 0, 2424893, 65536, 0, 2424894, 0, 0, 2424895, 65536, 0, 2424896, 0, 0, 2424897, 65536, 0, 2424898, 0, 0, 2424899, 65536, 0, 2424900, 0, 0, 2424901, 65536, 0, 2424902, 0, 0, 2424903, 65536, 0, 2490368, 0, 1, 2490369, 65536, 1, 2490370, 0, 1, 2490371, 65536, 1, 2490372, 0, 1, 2490373, 65536, 1, 2490374, 0, 1, 2490375, 65536, 1, 2490376, 0, 1, 2490377, 65536, 1, 2490378, 0, 1, 2490379, 65536, 1, 2490380, 0, 1, 2490381, 1, 1, 2490382, 65537, 1, 2490383, 1, 1, 2490384, 65537, 1, 2490385, 1, 1, 2490386, 65537, 1, 2490387, 1, 1, 2490388, 65537, 1, 2490389, 1, 1, 2490390, 65537, 1, 2490391, 1, 1, 2490392, 65537, 1, 2490393, 1, 1, 2490394, 65537, 1, 2490395, 1, 1, 2490396, 65537, 1, 2490397, 1, 1, 2490398, 65537, 1, 2490399, 1, 1, 2490400, 65537, 1, 2490401, 1, 1, 2490402, 65537, 1, 2490403, 1, 1, 2490404, 65537, 1, 2490405, 1, 1, 2490406, 65537, 1, 2490407, 1, 1, 2490408, 1, 1, 2490409, 65537, 1, 2490410, 1, 1, 2490411, 65537, 1, 2490412, 65537, 1, 2490413, 1, 1, 2490414, 65537, 1, 2490415, 1, 1, 2490416, 65537, 1, 2490417, 65536, 1, 2490418, 0, 1, 2490419, 65536, 1, 2490420, 0, 1, 2490421, 65536, 1, 2490422, 0, 1, 2490423, 65536, 1, 2490424, 0, 1, 2490425, 65536, 1, 2490426, 0, 1, 2490427, 65536, 1, 2490428, 0, 1, 2490429, 65536, 1, 2490430, 0, 1, 2490431, 65536, 1, 2490432, 0, 1, 2490433, 65536, 1, 2490434, 0, 1, 2490435, 65536, 1, 2490436, 0, 1, 2490437, 65536, 1, 2490438, 0, 1, 2490439, 65536, 1, 2555904, 1, 0, 2621440, 1, 1, 2555905, 65537, 0, 2621441, 65537, 1, 2555906, 1, 0, 2621442, 1, 1, 2555907, 65537, 0, 2621443, 65537, 1, 2555908, 1, 0, 2621444, 1, 1, 2555909, 65537, 0, 2621445, 65537, 1, 2555910, 1, 0, 2621446, 1, 1, 2555911, 65537, 0, 2621447, 65537, 1, 2555912, 1, 0, 2621448, 1, 1, 2555913, 65537, 0, 2621449, 65537, 1, 2555914, 1, 0, 2621450, 1, 1, 2555915, 65537, 0, 2621451, 65537, 1, 2555916, 1, 0, 2621452, 1, 1, 2555917, 1, 0, 2621453, 1, 1, 2555918, 65537, 0, 2621454, 65537, 1, 2555919, 1, 0, 2621455, 1, 1, 2555920, 65537, 0, 2621456, 65537, 1, 2555921, 1, 0, 2621457, 1, 1, 2555922, 65537, 0, 2621458, 65537, 1, 2555923, 1, 0, 2621459, 1, 1, 2555924, 65537, 0, 2621460, 65537, 1, 2555925, 1, 0, 2621461, 1, 1, 2555926, 65537, 0, 2621462, 65537, 1, 2555927, 1, 0, 2621463, 1, 1, 2555928, 65537, 0, 2621464, 65537, 1, 2555929, 1, 0, 2621465, 1, 1, 2555930, 65537, 0, 2621466, 65537, 1, 2555931, 1, 0, 2621467, 1, 1, 2555932, 65537, 0, 2621468, 65537, 1, 2555933, 1, 0, 2621469, 1, 1, 2555934, 65537, 0, 2621470, 65537, 1, 2555935, 1, 0, 2621471, 1, 1, 2555936, 65537, 0, 2621472, 65537, 1, 2555937, 1, 0, 2621473, 1, 1, 2555938, 65537, 0, 2621474, 65537, 1, 2555939, 1, 0, 2621475, 1, 1, 2555940, 65537, 0, 2621476, 65537, 1, 2555941, 1, 0, 2621477, 1, 1, 2555942, 65537, 0, 2621478, 65537, 1, 2555943, 1, 0, 2621479, 1, 1, 2555944, 1, 0, 2621480, 1, 1, 2555945, 65537, 0, 2621481, 65537, 1, 2555946, 1, 0, 2621482, 1, 1, 2555947, 65537, 0, 2621483, 65537, 1, 2555948, 65537, 0, 2621484, 65537, 1, 2555949, 1, 0, 2621485, 1, 1, 2555950, 65537, 0, 2621486, 65537, 1, 2555951, 1, 0, 2621487, 1, 1, 2555952, 65537, 0, 2621488, 65537, 1, 2555953, 65537, 0, 2621489, 65537, 1, 2555954, 1, 0, 2621490, 1, 1, 2555955, 65537, 0, 2621491, 65537, 1, 2555956, 1, 0, 2621492, 1, 1, 2555957, 65537, 0, 2621493, 65537, 1, 2555958, 1, 0, 2621494, 1, 1, 2555959, 65537, 0, 2621495, 65537, 1, 2555960, 1, 0, 2621496, 1, 1, 2555961, 65537, 0, 2621497, 65537, 1, 2555962, 1, 0, 2621498, 1, 1, 2555963, 65537, 0, 2621499, 65537, 1, 2555964, 1, 0, 2621500, 1, 1, 2555965, 65537, 0, 2621501, 65537, 1, 2555966, 1, 0, 2621502, 1, 1, 2555967, 65537, 0, 2621503, 65537, 1, 2555968, 1, 0, 2621504, 1, 1, 2555969, 65537, 0, 2621505, 65537, 1, 2555970, 1, 0, 2621506, 1, 1, 2555971, 65537, 0, 2621507, 65537, 1, 2555972, 1, 0, 2621508, 1, 1, 2555973, 65537, 0, 2621509, 65537, 1, 2555974, 1, 0, 2621510, 1, 1, 2555975, 65537, 0, 2621511, 65537, 1, 2359313, 0, 1, 2359314, 65537, 1, 2359315, 1, 1, 2359316, 65537, 1, 2359317, 1, 1, 2359318, 65537, 1, 2293777, 0, 0, 2293778, 65537, 0, 2293779, 1, 0, 2293780, 65537, 0, 2293781, 1, 0, 2293782, 65537, 0, 2162706, 65536, 0, 2228242, 65536, 1, 2162707, 0, 0, 2228243, 0, 1, 2162708, 65536, 0, 2228244, 65536, 1, 2162709, 0, 0, 2228245, 0, 1, 2162710, 65536, 0, 2228246, 65536, 1, 2293783, 0, 0, 2359319, 0, 1, 2293784, 65536, 0, 2359320, 65536, 1, 2293785, 0, 0, 2359321, 0, 1, 2293786, 65536, 0, 2359322, 65536, 1, 2293787, 0, 0, 2359323, 0, 1, 2293788, 65536, 0, 2359324, 65536, 1, 2293789, 0, 0, 2359325, 0, 1, 2293790, 65536, 0, 2359326, 65536, 1, 2293791, 0, 0, 2359327, 0, 1, 2293792, 65536, 0, 2359328, 65536, 1, 2293793, 0, 0, 2359329, 0, 1, 2293794, 65536, 0, 2359330, 65536, 1, 2293795, 1, 0, 2359331, 1, 1, 2293796, 65537, 0, 2359332, 65537, 1, 2293797, 1, 0, 2359333, 1, 1, 2293798, 65537, 0, 2359334, 65537, 1, 2293799, 1, 0, 2359335, 1, 1, 2293800, 1, 0, 2359336, 1, 1, 2293801, 65537, 0, 2359337, 65537, 1, 2293802, 1, 0, 2359338, 1, 1, 2293803, 65537, 0, 2359339, 65537, 1, 2293804, 65537, 0, 2359340, 65537, 1, 2293805, 1, 0, 2359341, 1, 1, 2293806, 65537, 0, 2359342, 65537, 1, 2293807, 0, 0, 2359343, 1, 1, 2293808, 65536, 0, 2359344, 65537, 1, 2162733, 65536, 0, 2228269, 1, 1, 2162734, 65536, 0, 2228270, 65537, 1, 2162731, 65537, 0, 2228267, 65537, 1, 2162732, 0, 0, 2228268, 65537, 1, 2162729, 65537, 0, 2228265, 65537, 1, 2162730, 1, 0, 2228266, 1, 1, 2162727, 65536, 0, 2228263, 1, 1, 2162728, 1, 0, 2228264, 1, 1, 2162725, 0, 0, 2228261, 1, 1, 2162726, 65536, 0, 2228262, 65537, 1, 2162723, 0, 0, 2228259, 1, 1, 2162724, 65536, 0, 2228260, 65537, 1, 2031658, 1, 0, 2097194, 1, 1, 2031659, 65537, 0, 2097195, 65537, 1, 1900586, 0, 0, 1966122, 1, 1, 1900587, 65536, 0, 1966123, 65537, 1, 1900584, 0, 0, 1966120, 1, 1, 1900585, 65536, 0, 1966121, 65537, 1, 2031656, 1, 0, 2097192, 1, 1, 2031657, 65537, 0, 2097193, 65537, 1, 2293775, 0, 0, 2359311, 0, 1, 2293776, 65536, 0, 2359312, 65536, 1, 2359310, 65536, 1, 2293774, 65536, 0, 2293773, 0, 0, 2359309, 0, 1, 1703965, 0, 0, 1769501, 0, 1, 1703966, 65536, 0, 1769502, 65536, 1, 1703967, 0, 0, 1769503, 0, 1, 1703968, 65536, 0, 1769504, 65536, 1, 1703969, 0, 0, 1769505, 0, 1, 1703970, 65536, 0, 1769506, 65536, 1)
+
+[node name="Porta" type="Node2D" parent="."]
+script = ExtResource("5_xmfgq")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Porta"]
+position = Vector2(1086, 573)
+sprite_frames = SubResource("SpriteFrames_nh4dt")
+
+[node name="Area2D" type="Area2D" parent="Porta"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Porta/Area2D"]
+position = Vector2(1086, 572)
+shape = SubResource("RectangleShape2D_y5k8n")
+
+[node name="Galo" parent="." instance=ExtResource("7_wehmc")]
+position = Vector2(55, 567)
+
+[node name="Camera2D" type="Camera2D" parent="Galo"]
+zoom = Vector2(1.94, 1.94)
+limit_left = 0
+limit_top = 251
+limit_right = 1152
+limit_bottom = 656
+
+[node name="Interface" type="CanvasLayer" parent="."]
+
+[node name="CoinLabel" type="RichTextLabel" parent="Interface"]
+offset_left = 71.0
+offset_top = 15.0
+offset_right = 161.0
+offset_bottom = 68.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/normal_font = ExtResource("8_0773y")
+theme_override_font_sizes/normal_font_size = 39
+text = " x 0"
+fit_content = true
+autowrap_mode = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="CoinSprite" type="AnimatedSprite2D" parent="Interface"]
+position = Vector2(34.75, 39)
+scale = Vector2(1.38158, 1.52632)
+sprite_frames = SubResource("SpriteFrames_w8b4t")
+
+[node name="LevelCompleteScreen" type="Node2D" parent="Interface"]
+visible = false
+
+[node name="Panel" type="Panel" parent="Interface/LevelCompleteScreen"]
+offset_left = 5.0
+offset_top = 12.0
+offset_right = 1139.0
+offset_bottom = 639.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_xkapa")
+
+[node name="LevelCompleteLabel" type="RichTextLabel" parent="Interface/LevelCompleteScreen/Panel"]
+offset_left = 123.0
+offset_top = 136.0
+offset_right = 1024.0
+offset_bottom = 324.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 30
+theme_override_fonts/normal_font = ExtResource("8_0773y")
+theme_override_font_sizes/normal_font_size = 118
+text = " Level Complete "
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="Interface/LevelCompleteScreen/Panel"]
+offset_left = 384.0
+offset_top = 458.0
+offset_right = 687.0
+offset_bottom = 564.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("8_0773y")
+theme_override_font_sizes/font_size = 46
+theme_override_styles/normal = SubResource("StyleBoxFlat_i865q")
+text = "Next Level"
+script = ExtResource("10_cy8q7")
+
+[node name="Level" parent="Interface/LevelCompleteScreen/Panel" instance=ExtResource("11_nawnh")]
+position = Vector2(734, 480)
+scale = Vector2(0.435474, 0.604916)
+
+[node name="Coins" type="Node2D" parent="."]
+position = Vector2(-3, -7)
+
+[node name="Moeda" parent="Coins" instance=ExtResource("10_pwgwe")]
+position = Vector2(395, 542)
+scale = Vector2(0.435474, 0.604916)
+
+[node name="Moeda2" parent="Coins" instance=ExtResource("10_pwgwe")]
+position = Vector2(429, 542)
+scale = Vector2(0.435474, 0.604916)
+
+[node name="Moeda3" parent="Coins" instance=ExtResource("10_pwgwe")]
+position = Vector2(312, 501)
+scale = Vector2(0.435474, 0.604916)
+
+[node name="Moeda4" parent="Coins" instance=ExtResource("10_pwgwe")]
+position = Vector2(482, 540)
+scale = Vector2(0.435474, 0.604916)
+
+[node name="Moeda5" parent="Coins" instance=ExtResource("10_pwgwe")]
+position = Vector2(676, 438)
+scale = Vector2(0.435474, 0.604916)
+
+[node name="Moeda6" parent="Coins" instance=ExtResource("10_pwgwe")]
+position = Vector2(742, 499)
+scale = Vector2(0.435474, 0.604916)
+
+[node name="Moeda7" parent="Coins" instance=ExtResource("10_pwgwe")]
+position = Vector2(792, 534)
+scale = Vector2(0.435474, 0.604916)
+
+[node name="Moeda8" parent="Coins" instance=ExtResource("10_pwgwe")]
+position = Vector2(849, 562)
+scale = Vector2(0.435474, 0.604916)
+
+[node name="Moeda9" parent="Coins" instance=ExtResource("10_pwgwe")]
+position = Vector2(887, 563)
+scale = Vector2(0.435474, 0.604916)
+
+[node name="Moeda10" parent="Coins" instance=ExtResource("10_pwgwe")]
+position = Vector2(928, 564)
+scale = Vector2(0.435474, 0.604916)
+
+[node name="Moeda11" parent="Coins" instance=ExtResource("10_pwgwe")]
+position = Vector2(972, 564)
+scale = Vector2(0.435474, 0.604916)
+
+[node name="Moeda12" parent="Coins" instance=ExtResource("10_pwgwe")]
+position = Vector2(1013, 564)
+scale = Vector2(0.435474, 0.604916)
+
+[node name="Moeda13" parent="Coins" instance=ExtResource("10_pwgwe")]
+position = Vector2(620, 502)
+scale = Vector2(0.435474, 0.604916)
+
+[node name="Moeda14" parent="Coins" instance=ExtResource("10_pwgwe")]
+position = Vector2(590, 502)
+scale = Vector2(0.435474, 0.604916)
+
+[node name="Moeda15" parent="Coins" instance=ExtResource("10_pwgwe")]
+position = Vector2(175, 561)
+scale = Vector2(0.435474, 0.604916)
+
+[node name="Moeda16" parent="Coins" instance=ExtResource("10_pwgwe")]
+position = Vector2(242, 539)
+scale = Vector2(0.435474, 0.604916)
+
+[node name="Moeda17" parent="Coins" instance=ExtResource("10_pwgwe")]
+position = Vector2(349, 501)
+scale = Vector2(0.435474, 0.604916)
+
+[node name="Moeda18" parent="Coins" instance=ExtResource("10_pwgwe")]
+position = Vector2(539, 401)
+scale = Vector2(0.435474, 0.604916)
+
+[node name="Moeda19" parent="Coins" instance=ExtResource("10_pwgwe")]
+position = Vector2(490, 401)
+scale = Vector2(0.435474, 0.604916)
+
+[node name="Moeda20" parent="Coins" instance=ExtResource("10_pwgwe")]
+position = Vector2(530, 541)
+scale = Vector2(0.435474, 0.604916)
+
+[connection signal="game_complete" from="Porta" to="." method="_on_porta_game_complete"]
+[connection signal="area_entered" from="Porta/Area2D" to="Porta" method="_on_area_2d_area_entered"]
+[connection signal="pressed" from="Interface/LevelCompleteScreen/Panel/Button" to="." method="_on_button_pressed"]
